@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Gorecon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ff88;
+            font-family: 'Caveat', monospace;
+        }
+
+        .terminal {
+            background: #111;
+            border: 1px solid #33ff33;
+            padding: 1rem;
+            font-size: 0.75rem;
+            overflow-y: auto;
+            height: 200px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="bg-black border border-gray-700 p-4 mb-6 text-sm text-pink-400 font-bold">
+            <pre>
+┌────────────────────────────────────────────────────────────┐
+│ Gorecon v1.0              Author: Geko                     │
+│ OS: Kali Linux (mock)     Mode: Bug Bounty Recon           │
+│ Threads: <span id="threadStat">--</span>             Status: <span id="statusStat">Idle</span>        │
+└────────────────────────────────────────────────────────────┘
+            </pre>
+        </div>
+
+        <form id="scanForm" class="mb-4 flex gap-2">
+            <input id="domainInput" type="text" placeholder="example.com"
+                class="bg-black border border-green-500 px-3 py-2 rounded w-64 text-green-300" />
+            <input id="threadsInput" type="number" min="1" max="100" value="30"
+                class="bg-black border border-pink-500 px-3 py-2 rounded w-24 text-pink-300" />
+            <button type="submit" class="bg-green-700 hover:bg-green-600 px-4 py-2 rounded text-white">🚀 Start
+                Scan</button>
+        </form>
+
+        <div id="statusText" class="text-sm text-gray-400 mb-4">No scan yet.</div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+                <h2 class="text-green-400 font-bold mb-2">🔍 Subfinder</h2>
+                <div id="subList"
+                    class="bg-black border border-green-500 p-3 rounded h-[300px] overflow-y-auto text-sm text-green-300">
+                </div>
+            </div>
+            <div>
+                <h2 class="text-cyan-400 font-bold mb-2">🌐 httpx Results</h2>
+                <div id="httpxList"
+                    class="bg-black border border-cyan-500 p-3 rounded h-[300px] overflow-y-auto text-sm text-cyan-300">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-yellow-400 font-bold mb-2">📟 Logs</h2>
+            <div id="log-box" class="terminal"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
