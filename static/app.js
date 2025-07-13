@@ -1,4 +1,4 @@
-//habdles scans  button press (Form Submit)
+//step 1 :handles scans  button press (Form Submit)
 document.getElementById("scanForm").addEventListener("submit", (e) => {
     e.preventDefault();// stop page frome reloading .....
 
@@ -60,6 +60,6 @@ function updateData() {
 
 // ⏱ Auto-refresh logs & data
 setInterval(() => {
-    updateLogs();
-    updateData();
-}, 2000);
+    updateLogs(); //refresh log message
+    updateData(); // refresh scan data 
+}, 2000);// every 2 seconds.
